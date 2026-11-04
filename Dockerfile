@@ -4,7 +4,7 @@ WORKDIR /app
 COPY src ./src
 COPY web ./web
 
-RUN mkdir -p out && find src -name "*.java" > sources.txt && javac -d out @sources.txt
+RUN mkdir -p out && javac -d out src/*.java
 
 EXPOSE 8080
-CMD ["java", "-cp", "out", "Main"]
+CMD ["java", "-cp", "out", "QuizServer"]
